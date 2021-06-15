@@ -6,6 +6,7 @@ const progressBarFull = document.getElementById('progressBarFull');
 const loader = document.getElementById('loader');
 const game = document.getElementById('game');
 
+
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
@@ -27,6 +28,7 @@ startGame = () => {
 
 getNewQuestion = () => {
     if (questionCounter >= MAX_QUESTIONS) {
+        localStorage.setItem('finalScore',score);
         //go to the end page
         return window.location.assign('./end.html');
     }
@@ -50,6 +52,7 @@ getNewQuestion = () => {
     });
     acceptingAnswers = true;
 };
+
 
 choices.forEach((choice) => {
     choice.addEventListener('click', (e) => {
